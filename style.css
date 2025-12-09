@@ -15,113 +15,130 @@ body {
 }
 
 .container {
-    max-width: 650px;
-    width: 100%;
-}
-
-.header {
-    text-align: center;
-    color: white;
-    margin-bottom: 30px;
-}
-
-.header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.date {
-    font-size: 1.1em;
-    opacity: 0.95;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-}
-
-.card {
     background: white;
+    max-width: 600px;
+    width: 100%;
     border-radius: 20px;
-    padding: 35px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    margin-bottom: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-in;
 }
 
-.versiculo {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    padding: 30px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    border-left: 6px solid #667eea;
-    text-align: center;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.icon {
-    font-size: 3em;
-    margin-bottom: 15px;
-}
-
-.texto {
-    font-size: 1.3em;
-    line-height: 1.7;
-    color: #2d3748;
-    font-style: italic;
-    margin-bottom: 20px;
-    font-weight: 500;
-}
-
-.referencia {
-    font-weight: bold;
-    color: #667eea;
-    font-size: 1.2em;
-    margin-top: 15px;
-}
-
-.devocional, .oracao {
-    margin-bottom: 30px;
-}
-
-.devocional h2, .oracao h2 {
-    color: #667eea;
-    margin-bottom: 15px;
-    font-size: 1.6em;
-}
-
-.devocional p, .oracao p {
-    color: #4a5568;
-    line-height: 1.9;
-    font-size: 1.1em;
-    text-align: justify;
-}
-
-.footer {
-    text-align: center;
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    font-size: 1.2em;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    padding: 30px;
+    text-align: center;
 }
 
-.footer p {
-    margin-bottom: 8px;
+header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
-.footer .small {
-    font-size: 0.85em;
+.data {
+    font-size: 14px;
     opacity: 0.9;
 }
 
+main {
+    padding: 30px;
+}
+
+.versiculo-card,
+.devocional-card,
+.oracao-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-left: 5px solid #667eea;
+    transition: transform 0.3s ease;
+}
+
+.versiculo-card:hover,
+.devocional-card:hover,
+.oracao-card:hover {
+    transform: translateX(5px);
+}
+
+.versiculo-icone {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.versiculo-card h2 {
+    color: #333;
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.referencia {
+    text-align: right;
+    color: #667eea;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.devocional-card h3,
+.oracao-card h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.devocional-card p,
+.oracao-card p {
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+footer {
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-top: 3px solid #667eea;
+}
+
+footer p {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.rodape-pequeno {
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+}
+
+/* Responsivo para celular */
 @media (max-width: 600px) {
-    .header h1 {
-        font-size: 2em;
+    header h1 {
+        font-size: 24px;
     }
 
-    .card {
-        padding: 25px;
+    .versiculo-card h2 {
+        font-size: 18px;
     }
 
-    .texto {
-        font-size: 1.15em;
-    }
-
-    .devocional h2, .oracao h2 {
-        font-size: 1.4em;
+    main {
+        padding: 20px;
     }
 }
