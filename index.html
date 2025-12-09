@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Canecas Devocionais | Mensagem Bíblica Diária</title>
+  <meta name="description" content="Leia uma mensagem bíblica com devocional diário ao escanear sua caneca devocional. Uma palavra de fé, reflexão e oração para o seu dia." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Canecas Devocionais | Mensagem Bíblica Diária" />
+  <meta property="og:description" content="Uma mensagem bíblica, uma reflexão e uma oração para o seu dia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://paulocrjr.github.io/canecas-devocionais/" />
+
+  <meta name="theme-color" content="#0f172a" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <!-- Topo / Identidade -->
+    <header>
+      <h1>Canecas Devocionais</h1>
+      <p class="subtitulo">
+        Uma palavra bíblica, uma reflexão e uma oração para o seu dia.
+      </p>
+    </header>
+
+    <!-- Cartão principal do devocional -->
+    <section id="devocional-card" class="card" aria-live="polite">
+      <header class="card-header">
+        <p id="data-atual" class="data"></p>
+        <p id="titulo-devocional" class="titulo-devocional"></p>
+      </header>
+
+      <section class="bloco-versiculo">
+        <p id="referencia" class="referencia"></p>
+        <blockquote id="versiculo" class="versiculo"></blockquote>
+      </section>
+
+      <hr class="separador" />
+
+      <section class="bloco-reflexao">
+        <h2 class="secao-titulo">Reflexão</h2>
+        <p id="texto-reflexao" class="texto-devocional texto-reflexao">
+          <!-- preenchido via JavaScript -->
+        </p>
+      </section>
+
+      <section class="bloco-oracao">
+        <h2 class="secao-titulo">Oração</h2>
+        <p id="texto-oracao" class="texto-devocional texto-oracao">
+          <!-- preenchido via JavaScript -->
+        </p>
+      </section>
+    </section>
+
+    <!-- Botão de outra mensagem -->
+    <button id="btn-outra" class="btn-secundario" type="button">
+      Ver outra mensagem
+    </button>
+
+    <!-- Rodapé -->
+    <footer>
+      <p>
+        © <span id="ano-atual"></span> Canecas Devocionais · por Encantaria Personalizados.
+      </p>
+      <p class="subtitulo">
+        Escaneado a partir de uma caneca especial. Compartilhe esta mensagem com alguém hoje.
+      </p>
+    </footer>
+  </main>
+
+  <!-- Script com devocionais e lógica -->
+  <script src="devocionais.js"></script>
+</body>
+</html>
