@@ -3,40 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devocional Diário - Caneca Inspiradora</title>
+    <title>Devocional Diário</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
+        <div class="header">
             <h1>✨ Devocional do Dia ✨</h1>
-            <p class="data" id="dataAtual"></p>
-        </header>
+            <p class="date" id="dataAtual"></p>
+        </div>
 
-        <main>
-            <div class="versiculo-card">
-                <div class="versiculo-icone">📖</div>
-                <h2 id="versiculoTexto">Carregando versículo...</h2>
+        <div class="card">
+            <div class="versiculo">
+                <div class="icon">📖</div>
+                <p class="texto" id="versiculoTexto">Carregando versículo...</p>
                 <p class="referencia" id="versiculoReferencia"></p>
             </div>
 
-            <div class="devocional-card">
-                <h3>💭 Reflexão do Dia</h3>
-                <p id="devocionalTexto">Carregando reflexão...</p>
+            <div class="devocional">
+                <h2>🧠 Reflexão do Dia</h2>
+                <p id="reflexaoTexto">Carregando reflexão...</p>
             </div>
 
-            <div class="oracao-card">
-                <h3>🙏 Oração</h3>
+            <div class="oracao">
+                <h2>🙏 Oração</h2>
                 <p id="oracaoTexto">Carregando oração...</p>
             </div>
-        </main>
+        </div>
 
-        <footer>
+        <div class="footer">
             <p>Que este dia seja abençoado! ☕</p>
-            <p class="rodape-pequeno">Feito com ❤️ para você</p>
-        </footer>
+            <p>Feito com ❤️ para você</p>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="devocionais.js"></script>
 </body>
 </html>
