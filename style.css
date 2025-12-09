@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.data {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+main {
+    padding: 30px;
+}
+
+.versiculo-card,
+.devocional-card,
+.oracao-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-left: 5px solid #667eea;
+    transition: transform 0.3s ease;
+}
+
+.versiculo-card:hover,
+.devocional-card:hover,
+.oracao-card:hover {
+    transform: translateX(5px);
+}
+
+.versiculo-icone {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.versiculo-card h2 {
+    color: #333;
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.referencia {
+    text-align: right;
+    color: #667eea;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.devocional-card h3,
+.oracao-card h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.devocional-card p,
+.oracao-card p {
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+footer {
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-top: 3px solid #667eea;
+}
+
+footer p {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.rodape-pequeno {
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+}
+
+/* Responsivo para celular */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    .versiculo-card h2 {
+        font-size: 18px;
+    }
+
+    main {
+        padding: 20px;
+    }
+}
