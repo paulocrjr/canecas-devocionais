@@ -344,7 +344,7 @@ function mostrarDevocional(indice) {
 
 // ---------------- COMPARTILHAMENTO ----------------
 
-(function configurarCompartilhamento() {
+document.addEventListener("DOMContentLoaded", function () {
   const baseURL = "https://paulocrjr.github.io/canecas-devocionais/";
 
   const tituloEl = document.getElementById("titulo-devocional");
@@ -356,7 +356,7 @@ function mostrarDevocional(indice) {
   const btnInstagram = document.getElementById("share-instagram");
 
   if (!tituloEl || !versiculoEl || !referenciaEl) {
-    console.warn("Elementos de texto do devocional não encontrados para compartilhamento.");
+    console.warn("Elementos do devocional não encontrados para compartilhamento.");
     return;
   }
 
@@ -373,7 +373,6 @@ function mostrarDevocional(indice) {
     );
   }
 
-  // Tenta usar a Web Share API (compartilhamento nativo do celular)
   async function compartilharNativo() {
     if (navigator.share) {
       try {
@@ -382,30 +381,27 @@ function mostrarDevocional(indice) {
           text: mensagemCompartilhamento(),
           url: baseURL
         });
-        return true;
+        return true; // compartilhou ou usuário cancelou, mas já usamos o nativo
       } catch (err) {
-        // Usuário cancelou ou houve erro — não precisa quebrar nada
-        console.log("Compartilhamento cancelado ou não concluído:", err);
-        return true; // já tentou o nativo, não precisa fallback agressivo
+        console.log("Compartilhamento nativo cancelado ou não concluído:", err);
+        return true;
       }
     }
-    return false; // não tem suporte ao compartilhamento nativo
+    return false; // navegador não tem Web Share API
   }
 
-  // ---- WhatsApp ----
+  // WhatsApp
   if (btnWhatsapp) {
     btnWhatsapp.addEventListener("click", async function () {
       const usouNativo = await compartilharNativo();
       if (usouNativo) return;
 
-      // Fallback (principalmente em desktop)
       const texto = encodeURIComponent(mensagemCompartilhamento());
-      const url = `https://wa.me/?text=${texto}`;
-      window.open(url, "_blank");
+      window.open(`https://wa.me/?text=${texto}`, "_blank");
     });
   }
 
-  // ---- Facebook ----
+  // Facebook
   if (btnFacebook) {
     btnFacebook.addEventListener("click", async function () {
       const usouNativo = await compartilharNativo();
@@ -413,41 +409,43 @@ function mostrarDevocional(indice) {
 
       const urlCompartilhar = encodeURIComponent(baseURL);
       const quote = encodeURIComponent(mensagemCompartilhamento());
-      const url = `https://www.facebook.com/sharer/sharer.php?u=${urlCompartilhar}&quote=${quote}`;
-      window.open(url, "_blank");
+      window.open(
+        `https://www.facebook.com/sharer/sharer.php?u=${urlCompartilhar}&quote=${quote}`,
+        "_blank"
+      );
     });
   }
 
-  // ---- Instagram ----
+  // Instagram
   if (btnInstagram) {
     btnInstagram.addEventListener("click", async function () {
       const usouNativo = await compartilharNativo();
       if (usouNativo) {
-        // No celular, aqui o usuário escolhe Instagram no menu de compartilhamento
+        // No celular, o usuário vai escolher Instagram no menu nativo
         return;
       }
 
-      // Fallback para navegadores/desktop:
+      // Fallback para desktop/navegadores sem Web Share API
       const texto = mensagemCompartilhamento();
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         try {
           await navigator.clipboard.writeText(texto);
           alert(
-            "O texto do devocional foi copiado!\n\nAbra o Instagram e cole no Direct ou nos Stories."
+            "O texto do devocional foi copiado.\n\nAbra o Instagram e cole no Direct ou nos Stories."
           );
         } catch (err) {
           alert(
-            "Não foi possível copiar automaticamente.\n\nSelecione e copie o texto manualmente no site."
+            "Não foi possível copiar automaticamente.\n\nSelecione e copie o texto manualmente."
           );
           console.error(err);
         }
       } else {
         alert(
-          "Seu navegador não permite cópia automática.\n\nSelecione e copie o texto manualmente no site."
+          "Seu navegador não suporta cópia automática.\n\nSelecione e copie o texto manualmente."
         );
       }
     });
   }
-})();
+});
 
